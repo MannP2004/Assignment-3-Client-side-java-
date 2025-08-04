@@ -3,7 +3,7 @@ body {
     background-size: cover;
     background-position: center center;
     font-family: Arial, sans-serif;
-    background: url("./weatherhero.jpg") fixed center no-repeat;
+    background: url("./weatherhero.jpg")center no-repeat;
     color: #333;
     display: flex;
     justify-content: center;
