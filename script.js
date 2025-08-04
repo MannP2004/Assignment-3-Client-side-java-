@@ -53,6 +53,58 @@ function displayWeather(data) {
     const iconCode = data.weather[0].icon;
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
+    const bodyElement = document.body;
+
+    switch (description) {
+        case 'clear sky':
+            bodyElement.style.backgroundImage = 'url("./clear.webp")';
+            bodyElement.style.color = '#000'; // For readability
+            break;
+        case 'few clouds':
+        case 'scattered clouds':
+        case 'broken clouds':
+        case 'overcast clouds':
+            bodyElement.style.backgroundImage = 'url("./cloudy.jpg")';
+            bodyElement.style.color = '#fff';
+            break;
+        case 'shower rain':
+        case 'rain':
+        case 'light rain':
+        case 'moderate rain':
+        case 'heavy intensity rain':
+            bodyElement.style.backgroundImage = 'url("./rain.jpg")';
+            bodyElement.style.color = '#fff';
+            break;
+
+             case 'light snow':
+    case 'snow':
+    case 'heavy snow':
+    case 'sleet':
+        bodyElement.style.backgroundImage = 'url("./snow.jpg")';
+        bodyElement.style.color = '#000';
+        break;
+
+    case 'thunderstorm':
+    case 'light thunderstorm':
+    case 'heavy thunderstorm':
+        bodyElement.style.backgroundImage = 'url("./thunderstorm.webp")';
+        bodyElement.style.color = '#fff';
+        break;
+
+    case 'mist':
+    case 'smoke':
+    case 'haze':
+    case 'fog':
+        bodyElement.style.backgroundImage = 'url("./mist.webp")';
+        bodyElement.style.color = '#fff';
+        break;
+
+        default:
+            bodyElement.style.backgroundImage = 'url("./clear.webp")'; 
+            bodyElement.style.color = '#fff';
+            break;
+    }
+
     // Create the HTML to display the weather data, including the icon
     const html = `
         <h2>Weather in ${city}, ${country}</h2>
